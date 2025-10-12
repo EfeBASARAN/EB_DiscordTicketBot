@@ -1,0 +1,12 @@
+{
+  "title": "🔍 Yetkili Sorgulama Sonucu",
+  "description": "**{userName}** için sorgulama sonucu",
+  "fields": [
+    {
+      "name": "📊 İstatistikler",
+      "value": "**Log Kanalında Etiketlenme:** `{mentionCount}` defa\n**Toplam Ticket Üstlenme:** `{mentionCount}` adet",
+      "inline": false
+    }
+  ],
+  "color": "#0099ff"
+}

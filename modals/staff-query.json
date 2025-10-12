@@ -1,0 +1,14 @@
+{
+  "title": "🔍 Yetkili Sorgula",
+  "customId": "staff_query_modal",
+  "inputs": [
+    {
+      "customId": "staff_id_input",
+      "label": "Yetkili Discord ID",
+      "style": "Short",
+      "placeholder": "Örnek: 123456789012345678",
+      "required": true,
+      "maxLength": 20
+    }
+  ]
+}

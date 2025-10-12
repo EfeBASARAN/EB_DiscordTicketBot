@@ -1,0 +1,27 @@
+{
+  "title": "📊 Ticket Yönetim Paneli",
+  "description": "**{guildName}** sunucusu için anlık ticket istatistikleri",
+  "fields": [
+    {
+      "name": "🎫 Aktif Destek Talepleri",
+      "value": "`{activeTickets}` adet",
+      "inline": true
+    },
+    {
+      "name": "👥 Toplam Kullanıcı",
+      "value": "`{totalUsers}` üye",
+      "inline": true
+    },
+    {
+      "name": "🏆 En Aktif Yetkililer",
+      "value": "{topStaff}",
+      "inline": true
+    },
+    {
+      "name": "⏰ Bot Çalışma Süresi",
+      "value": "`{uptime}`",
+      "inline": false
+    }
+  ],
+  "color": "#0099ff"
+}

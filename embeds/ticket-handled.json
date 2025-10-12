@@ -1,0 +1,12 @@
+{
+  "title": "🎯 Destek Talebi Yetkili Tarafından Üstlenildi",
+  "description": "**Yetkili:** {staff}\n**Durum:** Aktif olarak ilgileniliyor\n**Zaman:** {timestamp}",
+  "fields": [
+    {
+      "name": "📋 Bilgi",
+      "value": "Bu destek talebi artık yetkili tarafından üstlenilmiştir. Sorununuz en kısa sürede çözülecektir.",
+      "inline": false
+    }
+  ],
+  "color": "#00ff00"
+}

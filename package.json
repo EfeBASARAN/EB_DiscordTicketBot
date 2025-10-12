@@ -1,0 +1,19 @@
+{
+  "name": "fivem-ticket-bot",
+  "version": "1.0.0",
+  "description": "Discord ticket bot for FiveM server",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "keywords": ["discord", "bot", "ticket", "fivem"],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "discord.js": "^14.14.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  }
+}

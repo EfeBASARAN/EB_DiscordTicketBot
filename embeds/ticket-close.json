@@ -1,0 +1,8 @@
+{
+  "title": "🎫 Destek Talebi Kapatılıyor",
+  "description": "Bu destek talebi {user} tarafından kapatılıyor.\n\nKanal 10 saniye sonra silinecektir.",
+  "footer": {
+    "text": "❌ FiveM Destek Sistemi"
+  },
+  "color": "#ff0000"
+}

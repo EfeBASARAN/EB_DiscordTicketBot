@@ -1,0 +1,8 @@
+{
+  "title": "🎫 Destek Talebi Oluşturuldu",
+  "description": "Merhaba {user}! Destek talebiniz başarıyla oluşturuldu.\n\nLütfen sorununuzu detaylı bir şekilde açıklayın. Yetkililer en kısa sürede size yardımcı olacaktır.",
+  "footer": {
+    "text": "✅ FiveM Destek Sistemi"
+  },
+  "color": "#00ff00"
+}
