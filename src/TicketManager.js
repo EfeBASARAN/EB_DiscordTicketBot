@@ -5,6 +5,7 @@ const ticketCloseEmbed = require('../embeds/ticket-close.json');
 const ticketHandledEmbed = require('../embeds/ticket-handled.json');
 const buttons = require('../buttons/buttons.json');
 const responses = require('../responses/responses.json');
+const logger = require('./utils/logger');
 
 class TicketManager {
     constructor(client) {
@@ -95,7 +96,7 @@ class TicketManager {
                 ephemeral: true
             });
 
-            console.log(responses.newTicketCreated
+            logger.success(responses.newTicketCreated
                 .replace('{name}', ticketChannel.name)
                 .replace('{user}', interaction.user.tag));
 
@@ -110,7 +111,7 @@ class TicketManager {
             }
 
         } catch (error) {
-            console.error('Ticket oluşturma hatası:', error);
+            logger.error(`Ticket oluşturma hatası: ${error}`);
             await interaction.reply({
                 content: responses.ticketCreationError,
                 ephemeral: true
@@ -197,7 +198,7 @@ class TicketManager {
             }
 
         } catch (error) {
-            console.error('Ticket ilgilenme hatası:', error);
+            logger.error(`Ticket ilgilenme hatası: ${error}`);
             await interaction.reply({
                 content: responses.handleTicketError,
                 ephemeral: true
@@ -247,14 +248,14 @@ class TicketManager {
             setTimeout(async () => {
                 try {
                     await channel.delete();
-                    console.log(responses.ticketClosed.replace('{name}', channel.name));
+                    logger.success(responses.ticketClosed.replace('{name}', channel.name));
                 } catch (error) {
-                    console.error(responses.channelDeleteError, error);
+                    logger.error(`${responses.channelDeleteError} ${error}`);
                 }
             }, 10000);
 
         } catch (error) {
-            console.error('Ticket kapatma hatası:', error);
+            logger.error(`Ticket kapatma hatası: ${error}`);
             await interaction.reply({
                 content: responses.ticketCloseError,
                 ephemeral: true

@@ -3,6 +3,7 @@ const config = require('../config.json');
 const panelEmbed = require('../embeds/panel.json');
 const buttons = require('../buttons/buttons.json');
 const responses = require('../responses/responses.json');
+const logger = require('./utils/logger');
 
 class PanelManager {
     constructor(client) {
@@ -13,7 +14,7 @@ class PanelManager {
         try {
             const panelChannel = this.client.channels.cache.get(config.panelChannelId);
             if (!panelChannel) {
-                console.error(responses.panelError);
+                logger.error(responses.panelError);
                 return;
             }
 
@@ -23,7 +24,7 @@ class PanelManager {
             
             if (botMessages.size > 0) {
                 await panelChannel.bulkDelete(botMessages);
-                console.log(`🗑️ ${botMessages.size} eski panel mesajı silindi`);
+                logger.info(`${botMessages.size} eski panel mesajı silindi`);
             }
 
             // Create panel embed
@@ -51,9 +52,9 @@ class PanelManager {
                 );
 
             await panelChannel.send({ embeds: [embed], components: [row] });
-            console.log('✅ Yeni panel mesajı gönderildi');
+            logger.success('Yeni panel mesajı gönderildi');
         } catch (error) {
-            console.error(responses.panelError, error);
+            logger.error(`${responses.panelError} ${error}`);
         }
     }
 }

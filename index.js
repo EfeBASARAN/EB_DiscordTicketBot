@@ -1,6 +1,7 @@
 const { Client, GatewayIntentBits } = require('discord.js');
 const config = require('./config.json');
 const responses = require('./responses/responses.json');
+const logger = require('./src/utils/logger');
 
 // Import classes
 const CommandHandler = require('./src/CommandHandler');
@@ -38,8 +39,8 @@ class TicketBot {
 
     setupEvents() {
         this.client.once('ready', () => {
-            console.log(responses.botStarted.replace('{tag}', this.client.user.tag));
-            console.log(responses.guildsActive.replace('{count}', this.client.guilds.cache.size));
+            logger.bot(responses.botStarted.replace('{tag}', this.client.user.tag));
+            logger.bot(responses.guildsActive.replace('{count}', this.client.guilds.cache.size));
             
             // Setup panel on startup
             this.panelManager.setupTicketPanel();
@@ -81,8 +82,8 @@ class TicketBot {
         });
 
         // Error handling
-        this.client.on('error', console.error);
-        process.on('unhandledRejection', console.error);
+        this.client.on('error', (error) => logger.error(error));
+        process.on('unhandledRejection', (error) => logger.error(error));
     }
 
     start() {

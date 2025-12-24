@@ -3,6 +3,7 @@ const config = require('../config.json');
 const ticketCreatedLog = require('../embeds/logs/ticket-created.json');
 const ticketClosedLog = require('../embeds/logs/ticket-closed.json');
 const ticketHandledLog = require('../embeds/logs/ticket-handled.json');
+const logger = require('./utils/logger');
 
 class TicketLogger {
     constructor(client) {
@@ -13,7 +14,7 @@ class TicketLogger {
         try {
             const logChannel = this.client.channels.cache.get(config.ticketLogChannelId);
             if (!logChannel) {
-                console.error('❌ Ticket log kanalı bulunamadı!');
+                logger.error('Ticket log kanalı bulunamadı!');
                 return;
             }
 
@@ -56,10 +57,10 @@ class TicketLogger {
                 .setTimestamp();
 
             await logChannel.send({ embeds: [embed] });
-            console.log(`📝 Ticket oluşturma logu gönderildi: ${user.tag}`);
+            logger.info(`Ticket oluşturma logu gönderildi: ${user.tag}`);
 
         } catch (error) {
-            console.error('❌ Ticket log hatası:', error);
+            logger.error(`Ticket log hatası: ${error}`);
         }
     }
 
@@ -67,7 +68,7 @@ class TicketLogger {
         try {
             const logChannel = this.client.channels.cache.get(config.ticketLogChannelId);
             if (!logChannel) {
-                console.error('❌ Ticket log kanalı bulunamadı!');
+                logger.error('Ticket log kanalı bulunamadı!');
                 return;
             }
 
@@ -118,10 +119,10 @@ class TicketLogger {
                 .setTimestamp();
 
             await logChannel.send({ embeds: [embed] });
-            console.log(`📝 Ticket kapatma logu gönderildi: ${user.tag} - ${closedBy.tag}`);
+            logger.info(`Ticket kapatma logu gönderildi: ${user.tag} - ${closedBy.tag}`);
 
         } catch (error) {
-            console.error('❌ Ticket log hatası:', error);
+            logger.error(`Ticket log hatası: ${error}`);
         }
     }
 
@@ -129,7 +130,7 @@ class TicketLogger {
         try {
             const logChannel = this.client.channels.cache.get(config.ticketHandleChannelId);
             if (!logChannel) {
-                console.error(`❌ Ticket handle log kanalı bulunamadı! ID: ${config.ticketHandleChannelId}`);
+                logger.error(`Ticket handle log kanalı bulunamadı! ID: ${config.ticketHandleChannelId}`);
                 return;
             }
 
@@ -170,10 +171,10 @@ class TicketLogger {
                 content: `**${handledBy} Destek talebiyle ilgilendi! 🎯**`, 
                 embeds: [embed] 
             });
-            console.log(`📝 Ticket ilgilenme logu gönderildi: ${user.tag} - ${handledBy.tag}`);
+            logger.info(`Ticket ilgilenme logu gönderildi: ${user.tag} - ${handledBy.tag}`);
 
         } catch (error) {
-            console.error('❌ Ticket handle log hatası:', error);
+            logger.error(`Ticket handle log hatası: ${error}`);
         }
     }
 }

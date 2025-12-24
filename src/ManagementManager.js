@@ -5,6 +5,7 @@ const staffQueryResultEmbed = require('../embeds/staff-query-result.json');
 const buttons = require('../buttons/buttons.json');
 const responses = require('../responses/responses.json');
 const staffQueryModal = require('../modals/staff-query.json');
+const logger = require('./utils/logger');
 
 class ManagementManager {
     constructor(client, ticketManager) {
@@ -17,7 +18,7 @@ class ManagementManager {
         try {
             const managementChannel = this.client.channels.cache.get(config.managementChannelId);
             if (!managementChannel) {
-                console.error('❌ Yönetim kanalı bulunamadı!');
+                logger.error('Yönetim kanalı bulunamadı!');
                 return;
             }
 
@@ -88,15 +89,15 @@ class ManagementManager {
             if (existingMessage) {
                 // Update existing message
                 await existingMessage.edit({ embeds: [embed], components: [buttonRow] });
-                console.log('✅ Yönetim embedi güncellendi');
+                logger.success('Yönetim embedi güncellendi');
             } else {
                 // Send new message
                 await managementChannel.send({ embeds: [embed], components: [buttonRow] });
-                console.log('✅ Yeni yönetim embedi gönderildi');
+                logger.success('Yeni yönetim embedi gönderildi');
             }
 
         } catch (error) {
-            console.error('❌ Yönetim embedi hatası:', error);
+            logger.error(`Yönetim embedi hatası: ${error}`);
         }
     }
 
@@ -148,7 +149,7 @@ class ManagementManager {
             
             return topStaffList;
         } catch (error) {
-            console.error('Top staff stats hatası:', error);
+            logger.error(`Top staff stats hatası: ${error}`);
             return '`Veri alınamadı`';
         }
     }
@@ -196,7 +197,7 @@ class ManagementManager {
             await interaction.showModal(modal);
 
         } catch (error) {
-            console.error('Modal hatası:', error);
+            logger.error(`Modal hatası: ${error}`);
             await interaction.reply({
                 content: responses.modalError,
                 ephemeral: true
@@ -248,7 +249,7 @@ class ManagementManager {
             await interaction.reply({ embeds: [embed] });
 
         } catch (error) {
-            console.error('Staff query submit hatası:', error);
+            logger.error(`Staff query submit hatası: ${error}`);
             await interaction.reply({
                 content: responses.queryError,
                 ephemeral: true
@@ -285,7 +286,7 @@ class ManagementManager {
             
             return totalCount;
         } catch (error) {
-            console.error('Staff mention count hatası:', error);
+            logger.error(`Staff mention count hatası: ${error}`);
             return 0;
         }
     }

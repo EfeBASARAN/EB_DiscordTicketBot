@@ -1,5 +1,6 @@
 const { EmbedBuilder } = require('discord.js');
 const responses = require('../responses/responses.json');
+const logger = require('./utils/logger');
 
 class CommandHandler {
     constructor(client, ticketManager) {
@@ -43,7 +44,7 @@ class CommandHandler {
             await panelManager.setupTicketPanel();
             await message.reply(responses.panelUpdated);
         } catch (error) {
-            console.error('Panel komut hatası:', error);
+            logger.error(`Panel komut hatası: ${error}`);
             await message.reply(responses.panelUpdateError);
         }
     }
