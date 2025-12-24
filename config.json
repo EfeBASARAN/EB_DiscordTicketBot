@@ -1,15 +1,15 @@
 {
-  "token": "YOUR_BOT_TOKEN_HERE",
-  "categoryId": "YOUR_CATEGORY_ID_HERE",
-  "panelChannelId": "YOUR_PANEL_CHANNEL_ID_HERE",
-  "managementChannelId": "YOUR_MANAGEMENT_CHANNEL_ID_HERE",
-  "ticketLogChannelId": "YOUR_TICKET_LOG_CHANNEL_ID_HERE",
-  "ticketHandleChannelId": "YOUR_TICKET_HANDLE_CHANNEL_ID_HERE",
-  "supportRoleId": "YOUR_SUPPORT_ROLE_ID_HERE",
-  "staffRoleId": "YOUR_STAFF_ROLE_ID_HERE",
+  "token": "MTQyNDg3NjUwOTY0MTgzNDY0Nw.GBSQKN._0-HhqxnxxNsMeY3UFBMUZR35XCw8hQyof3v2Y",
+  "categoryId": "1426881413470228553",
+  "panelChannelId": "1426894357910388737",
+  "managementChannelId": "1426907619381084192",
+  "ticketLogChannelId": "1426909688645156954",
+  "ticketHandleChannelId": "1426924825175265383",
+  "supportRoleId": "1425171168972771490",
+  "staffRoleId": "1425171168972771490",
   "prefix": "!",
   "ticketSettings": {
-    "maxTickets": 3,
+    "maxTickets": 25,
     "autoClose": false,
     "autoCloseTime": 24
   }
